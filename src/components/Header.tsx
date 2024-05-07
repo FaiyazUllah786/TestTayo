@@ -1,0 +1,41 @@
+import { Link, useLocation } from "react-router-dom";
+import { MdContactPage } from "react-icons/md";
+import { TbChartSankey } from "react-icons/tb";
+
+const Header = () => {
+  const location = useLocation();
+
+  return (
+    <>
+      <aside
+        className="flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto border-r bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 
+		hover:bg-gray-600/10 border-gray-800 text-white"
+      >
+        <nav className="h-full flex flex-col gap-3">
+          <Link
+            to="/"
+            style={{ color: location.pathname === "/" ? "#fff" : "#000" }}
+            className="font-serif mt-9 mb-5"
+          >
+            <div className="flex flex-col justify-center items-center">
+              <MdContactPage size={35} />
+              Contacts
+            </div>
+          </Link>
+          <Link
+            to="/chart"
+            style={{ color: location.pathname === "/chart" ? "#fff" : "#000" }}
+            className="font-serif mt-9"
+          >
+            <div className="flex flex-col justify-center items-center">
+              <TbChartSankey size={35} />
+              Charts
+            </div>
+          </Link>
+        </nav>
+      </aside>
+    </>
+  );
+};
+
+export default Header;
